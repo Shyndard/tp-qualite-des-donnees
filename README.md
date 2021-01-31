@@ -55,9 +55,11 @@ Nous avons comparé les valeurs entre les données du SI erreur et Savukoski kir
 Données aquises en divisant les valeurs d'un SI par un autre
 |  | Janvier | Février | Mars | Avril | Mai | Juin | Juillet | Aout | Septembre | Octobre | Novembre | Décembre | 
 | :- | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-| Moyenne de témpérature | 1.0 | 0.902 | 0.961 | 1.0 | 1.0 | 1.002 | 0.999 | 1.002 | 1.0 | 0.996 | 1.0 | 0.982 |
-| Ecart type | 1.0 | 1.081 | 0.99 | 1.0 | 1.0 | 0.991 | 0.996 | 0.994 | 1.0 | 1.047 | 1.0 | 1.072 |
-| Température minimale | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 |
-| Température maximale | 1.0 | 1.667 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 |
+| Moyenne de témpérature | 0.824 | 0.381 | 0.116 | 13.598 | 1.274 | 1.601 | 0.947 | 1.368 | 1.376 | 5.502 | 0.389 | 0.854 |
+| Ecart type | 0.732 | 0.625 | 0.744 | 0.979 | 0.916 | 0.852 | 1.357 | 0.829 | 0.609 | 0.353 | 0.982 | 0.361 |
+| Température minimale | 0.878 | 0.441 | 0.387 | 0.252 | 2.273 | 2.268 | 0.867 | 1.697 | 4.615 | 0.09 | 0.705 | 0.444 |
+| Température maximale | 0.896 | 1.277 | 2.692 | 2.645 | 1.053 | 1.358 | 1.053 | 1.221 | 1.208 | 0.683 | 1.299 | 1.277 |
 
-> Les données sont proches avec quelques écarts. Selon les données, on est dans un pays du nord. La capitale qui s'en rapproche le plus est helsinki (cf. https://www.infoclimat.fr/climatologie/annee/2018/helsinki-vantaa/valeurs/02974.html)
+On observe des écarts importants, il ne s'agit donc pas de la même ville.
+
+> Selon les données, on est dans un pays du nord de l'europe ayant des températures en moyenne en dessous de 0°C en hiver. La capitale européenne qui se rapproche le plus est helsinki (cf. https://www.infoclimat.fr/climatologie/annee/2018/helsinki-vantaa/valeurs/02974.html)
