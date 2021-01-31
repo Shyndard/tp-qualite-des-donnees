@@ -52,7 +52,7 @@ Dans l'export ci-dessous, vous trouverez :
 
 Nous avons comparé les valeurs entre les données du SI erreur et Savukoski kirkonkyla. 
 
-Données aquises en divisant les valeurs d'un SI par un autre
+Données acquises en divisant les valeurs des stats d'un SI avec l'autre. Plus la valeur est proche de 1, moins il y a d'écart.
 |  | Janvier | Février | Mars | Avril | Mai | Juin | Juillet | Aout | Septembre | Octobre | Novembre | Décembre | 
 | :- | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
 | Moyenne de témpérature | 0.824 | 0.381 | 0.116 | 13.598 | 1.274 | 1.601 | 0.947 | 1.368 | 1.376 | 5.502 | 0.389 | 0.854 |
