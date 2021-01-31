@@ -39,7 +39,7 @@ En appliquant ces traitements sur les températures, nous obtenons les résultat
 | 1 | Octobre | 15 | NOK |
 | -33 | Décembre | 20 | OK |
 
-On observe que 5 valeurs ont été considérées comme fausses alors qu’elles sont vraies selon le premier SI.
+On observe que 2 valeurs ont été considérées comme fausses alors qu’elles sont vraies selon le premier SI.
 
 Dans l'export ci-dessous, vous trouverez :
 - En vert les valeurs (non modifiées) considérées comme fausses par le premier traitement
