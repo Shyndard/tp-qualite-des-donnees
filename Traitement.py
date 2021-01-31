@@ -509,10 +509,10 @@ plt.show()
 
 # On compare les écarts
 
-print(calculateDeviation(temperatures_averages[0], temperatures_averages[1]))
-print(calculateDeviation(temperatures_standard_deviation[0], temperatures_standard_deviation[1]))
-print(calculateDeviation(temperatures_min_per_month[0], temperatures_min_per_month[1]))
-print(calculateDeviation(temperatures_max_per_month[0], temperatures_max_per_month[1]))
+print(calculateDeviation(temperatures_averages[1], temperatures_averages[2]))
+print(calculateDeviation(temperatures_standard_deviation[1], temperatures_standard_deviation[2]))
+print(calculateDeviation(temperatures_min_per_month[1], temperatures_min_per_month[2]))
+print(calculateDeviation(temperatures_max_per_month[1], temperatures_max_per_month[2]))
 
 
 # On constate que l'écart pour la moyenne et l'écart type des témparatures par mois est faible excepté pour le mois de décembre et d'Aout.
