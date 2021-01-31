@@ -29,7 +29,7 @@ Un traitement repasse sur chaque température et effectue les opérations suivan
 
 #### 3. Résultats
 
-En appliquant ces traitements sur les températures, nous obtenons les résultats suivants :
+En appliquant le second traitement sur les températures, nous obtenons les résultats suivants :
 
 | Température initiale | Mois | n° du jour | Cohérence avec premier SI |
 | :-----------: |:----:|:----:| :-----------------------------------------:|
