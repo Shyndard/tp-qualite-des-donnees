@@ -82,6 +82,10 @@ Comme pour le premier SI, nous avons généré les graphiques du SI erreur corri
 
 ### Traitement des données de Savukoski kirkonkyla
 
+Quelques statistiques sur les données de Savukoski kirkonkyla :
+
+![alt text](https://zupimages.net/up/21/05/87px.png)
+
 Nous avons comparé les valeurs entre les données du SI erreur et Savukoski kirkonkyla. 
 
 Données acquises en divisant les valeurs des stats d'un SI avec l'autre. Plus la valeur est proche de 1, moins il y a d'écart.
@@ -92,7 +96,7 @@ Données acquises en divisant les valeurs des stats d'un SI avec l'autre. Plus l
 | Température minimale | 0.878 | 0.441 | 0.387 | 0.252 | 2.273 | 2.268 | 0.867 | 1.697 | 4.615 | 0.09 | 0.705 | 0.444 |
 | Température maximale | 0.896 | 1.277 | 2.692 | 2.645 | 1.053 | 1.358 | 1.053 | 1.221 | 1.208 | 0.683 | 1.299 | 1.277 |
 
-On observe des écarts importants, il ne s'agit donc pas de la même ville.
+On observe des écarts importants, il ne s'agit donc pas de la même ville à la même année.
 
 > Selon les données, on est dans un pays du nord de l'europe ayant des températures en moyenne en dessous de 0°C en hiver. 
 
