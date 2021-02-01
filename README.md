@@ -75,3 +75,5 @@ Les moyennes et les écarts types de chaque année sont comparées aux  moyennes
 Le traitement sort une valeur de 1.0177011027066796 pour la ville de Stockholm pour l'année 2006. Vous trouverez à la fin du fichier [Traitement.ipynb](https://github.com/Shyndard/tp-qualite-des-donnees/blob/master/Traitement.ipynb) une courbe comparant les températures entre le SI erreur corrigé et Stockholm 2006.
 
 ![alt text](https://zupimages.net/up/21/05/2wyu.png)
+
+On constate des écarts importants de température pour le mois de janvier et décembre. Cela est dû à la comparaison de la moyenne et de l'écart type par mois et non pas des températures.
