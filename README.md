@@ -2,15 +2,11 @@
 
 ## Introduction
 
-> TP dans le cadre de la formation sur la qualité des données
+> TP dans le cadre de la formation sur la qualité des données.Ce TP a été réalisée via Jupyter Notebook avec Python 3.8.6. Groupe constitué de Maël C. et Clément F.
 
-> Ce TP a été réalisée via Jupyter Notebook avec Python 3.8.6
-
-> Groupe constitué de Maël C. et Clément F.
+> Ce README contient les réponses contenues dans le fichier [Traitement.ipynb](https://github.com/Shyndard/tp-qualite-des-donnees/blob/master/Traitement.ipynb) en expliquant nos choix. Rendez-vous dans ce fichier pour consulter les graphiques. Pour intéragir avec certains graphiques, il est nécessaire d'exécuter le script.
 
 ## Traitement
-
-Ce README contient les réponses contenues dans le fichier [Traitement.ipynb](https://github.com/Shyndard/tp-qualite-des-donnees/blob/master/Traitement.ipynb) en expliquant nos choix. Rendez-vous dans ce fichier pour consulter les graphiques. Pour intéragir avec certains graphiques, il est nécessaire d'exécuter le script.
 
 ### Traitement du SI en erreur
 
@@ -62,4 +58,20 @@ Données acquises en divisant les valeurs des stats d'un SI avec l'autre. Plus l
 
 On observe des écarts importants, il ne s'agit donc pas de la même ville.
 
-> Selon les données, on est dans un pays du nord de l'europe ayant des températures en moyenne en dessous de 0°C en hiver. La capitale européenne qui se rapproche le plus est helsinki (cf. https://www.infoclimat.fr/climatologie/annee/2018/helsinki-vantaa/valeurs/02974.html)
+> Selon les données, on est dans un pays du nord de l'europe ayant des températures en moyenne en dessous de 0°C en hiver. 
+
+### Trouver la capitale
+
+#### Version manuelle
+
+En comparant la moyenne des température avec le site infoclimat.fr, la capitale européenne qui se rapproche le plus est helsinki en 2018 (cf. https://www.infoclimat.fr/climatologie/annee/2018/helsinki-vantaa/valeurs/02974.html)
+
+#### Version automatique
+
+Nous nous sommes basé sur un jeu de données provenant de Kaggle (https://www.kaggle.com/sudalairajkumar/daily-temperature-of-major-cities) dont nous avons extrait les capitales des pays du nord de l'europe sur plusieurs années ([city_temperature_light.csv.xlsx](https://github.com/Shyndard/tp-qualite-des-donnees/raw/master/data/city_temperature_light.csv.xlsx)). Au total, 151 années de températures sont contenues dans ce fichier.
+
+Les moyennes et les écarts types de chaque année sont comparées aux  moyennes et les écarts types de notre SI corrigé. Le but est d'avoir une valeur qui se rapproche le plus possible de 1.
+
+Le traitement sort une valeur de 1.0177011027066796 pour la ville de Stockholm pour l'année 2006. Vous trouverez à la fin du fichier [Traitement.ipynb](https://github.com/Shyndard/tp-qualite-des-donnees/blob/master/Traitement.ipynb) une courbe comparant les températures entre le SI erreur corrigé et Stockholm 2006.
+
+![alt text](https://zupimages.net/up/21/05/2wyu.png)
