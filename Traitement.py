@@ -78,7 +78,7 @@ def getMinAndMaxPerArray(arrayOfArray):
 flatten = lambda t: [item for sublist in t for item in sublist]
 
 # Définition d'une lambda de diviser une liste par une autre
-calculateDeviation = lambda list1, list2 : [abs(round(i / j, 3)) for i, j in zip(list1, list2)]
+calculateDeviation = lambda list1, list2 : [abs(np.round(i / j, 3)) for i, j in zip(list1, list2)]
 
 # Définition d'une fonction qui permet d'afficher un pointeur
 class SnaptoCursor(object):
@@ -515,9 +515,102 @@ print(calculateDeviation(temperatures_min_per_month[1], temperatures_min_per_mon
 print(calculateDeviation(temperatures_max_per_month[1], temperatures_max_per_month[2]))
 
 
-# On constate que l'écart pour la moyenne et l'écart type des témparatures par mois est faible excepté pour le mois de décembre et d'Aout.
-# Selon les données, on est dans un pays du nord. 
-# La capitale qui s'en rapproche le plus est helsinki (cf. https://www.infoclimat.fr/climatologie/annee/2018/helsinki-vantaa/valeurs/02974.html)
+# On constate que les données ne sont pas cohérentes. Il ne s'agit pas de la même ville.
+# Selon les données, on est dans un pays du nord de l'europe où il fait en dessous de 0 l'hiver.
+
+# ### Traitement sur le fichier opendata city_temperature_light.csv.xlsx ###
+
+# In[25]:
+
+
+## Chargement du fichier city_temperature_light.csv.xlsx
+
+si_opendata = pd.read_excel("/home/jovyan/work/data/city_temperature_light.csv.xlsx", sheet_name=0)
+
+
+# In[26]:
+
+
+temperatures_opendata=[]
+temperatures_opendata_averages=[]
+temperatures_opendata_standard_deviation=[]
+temperatures_opendata_min_per_month=[]
+temperatures_opendata_max_per_month=[]
+
+
+# In[27]:
+
+
+current_country_by_year = []
+current_month_temperatures = []
+current_year_temperatures = []
+current_month = si_opendata.iloc[1, 4]
+current_year = si_opendata.iloc[1, 6]
+
+def fahrenheitToCelsius(value):
+    return np.round((value - 32) / 1.8, 2)
+
+# On récupère les données des différentes années du fichier d'open data
+for row in range(0,len(si_opendata.index)):
+    if si_opendata.iloc[row, 4] != current_month:
+        current_year_temperatures.append(current_month_temperatures)
+        current_month = si_opendata.iloc[row, 4]
+        current_month_temperatures = []
+    if si_opendata.iloc[row, 6] != current_year:
+        if(len(flatten(current_year_temperatures)) >= 365):
+            temperatures_opendata.append(current_year_temperatures)
+        current_country_by_year.append(si_opendata.iloc[row, 3] + " | " + str(si_opendata.iloc[row, 6]))
+        current_year = si_opendata.iloc[row, 6]
+        current_year_temperatures = []
+    current_month_temperatures.append(fahrenheitToCelsius(si_opendata.iloc[row, 7]))
+
+current_year_temperatures.append(current_month_temperatures)
+temperatures_opendata.append(current_year_temperatures)
+if(len(flatten(current_year_temperatures)) >= 365):
+    current_country_by_year.append(si_opendata.iloc[row, ] + " | " + str(si_opendata.iloc[row, 6]))
+
+
+# In[28]:
+
+
+# On calcul les moyennes et les écarts types
+print(len(temperatures_opendata))
+for index in range(0, len(temperatures_opendata)):
+    temperatures_opendata_averages.append(getAveragePerArray(temperatures_opendata[index]))
+    temperatures_opendata_standard_deviation.append(getStandardDeviationPerArray(temperatures_opendata[index]))
+
+
+# In[29]:
+
+
+# On détermine quel est l'année et la ville qui se rapproche le plus de 1
+
+best_average_score = 0
+best_average_score_index = 0
+
+for index in range(0, len(temperatures_opendata_averages)):
+    average_score = np.prod(calculateDeviation(temperatures_opendata_averages[index], temperatures_averages[1])) * np.prod(calculateDeviation(temperatures_opendata_standard_deviation[index], temperatures_standard_deviation[1]))
+    if(np.abs(1 - best_average_score) > np.abs(average_score - 1)):
+        best_average_score = average_score
+        best_average_score_index = index
+
+print(best_average_score, best_average_score_index, current_country_by_year[best_average_score_index])
+
+
+# In[30]:
+
+
+# On affiche les températures du SI et de la ville trouvée
+get_ipython().run_line_magic('matplotlib', 'notebook')
+
+plot = plt.figure(0)
+plt.plot(flatten(temperatures[1]), label = "SI")
+plt.plot(flatten(temperatures_opendata[best_average_score_index]), label = current_country_by_year[best_average_score_index])
+plt.xlabel("Jour de l'année")
+plt.title("Comparaisons des températures")
+plt.legend()
+plt.show()
+
 
 # In[ ]:
 
