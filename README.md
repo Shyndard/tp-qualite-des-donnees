@@ -4,9 +4,24 @@
 
 > TP dans le cadre de la formation sur la qualité des données.Ce TP a été réalisée via Jupyter Notebook avec Python 3.8.6. Groupe constitué de Maël C. et Clément F.
 
-> Ce README contient les réponses contenues dans le fichier [Traitement.ipynb](https://github.com/Shyndard/tp-qualite-des-donnees/blob/master/Traitement.ipynb) en expliquant nos choix. Rendez-vous dans ce fichier pour consulter les graphiques. Pour intéragir avec certains graphiques, il est nécessaire d'exécuter le script.
+> Ce README contient les réponses contenues dans le fichier [Traitement.ipynb](https://github.com/Shyndard/tp-qualite-des-donnees/blob/master/Traitement.ipynb) (consultable via l'interface github) en expliquant nos choix. Rendez-vous dans ce fichier pour consulter les graphiques. Pour intéragir avec certains graphiques, il est nécessaire d'exécuter le script.
 
 ## Traitement
+
+### Traitement du SI
+
+Le traitement du premier SI nous permet de mettre en évidence les graphiques de :
+- Statistiques sur la moyenne, l'écart type, le minimum et maximum des températures par mois
+
+![alt text](https://zupimages.net/up/21/05/oqh3.png)
+
+- Vue des températures par mois pour 12 mois
+
+![alt text](https://zupimages.net/up/21/05/r6iw.png)
+
+- Vue globale des températures à l'année
+
+![alt text](https://zupimages.net/up/21/05/y9qm.png)
 
 ### Traitement du SI en erreur
 
@@ -21,7 +36,8 @@ Lors de la lecture du fichier, lorsqu’une valeur lue n’est pas un nombre alo
 Une fois les températures lues, les calculs de la moyenne et de l’écart type par mois sont réalisés.
 Un traitement repasse sur chaque température et effectue les opérations suivantes :
 -  Une température est considérée comme atypique si elle est en dehors de l’intervalle [moyenne - écart type du mois ; moyenne + écart type du mois]. Cela nous permet d’avoir toutes les valeurs qui « sortent du lot ».
-- Une température atypique est considérée comme fausse si la valeur absolue de la température actuelle et du jour précédent et/ou jour suivant est supérieure à l’écart type du mois de la température. Cela permet de vérifier qu’une valeur en dehors de l’intervalle s’inscrit dans un contexte cohérent avec le jour précédent et/ou suivant. Le problème de cette correction intervient dans le cas où les températures sont fausses pendant au moins 2 jours consécutifs.
+- Une température atypique est considérée comme fausse si la valeur absolue de la température actuelle et du jour précédent et/ou jour suivant est supérieure à l’écart type du mois de la température. Cela permet de vérifier qu’une valeur en dehors de l’intervalle s’inscrit dans un contexte cohérent avec le jour précédent et/ou suivant. 
+Le problème de cette correction intervient dans le cas où les températures sont fausses pendant au moins 2 jours consécutifs. Une amélioration serait de faire la moyenne sur une dizaine de jours glissants centrés sur la valeur à remplacer et non pas sur le jour précédent et suivant. Ainsi nous aurions une meilleur vision du contexte des températures.
 
 #### 3. Résultats
 
@@ -43,6 +59,26 @@ Dans l'export ci-dessous, vous trouverez :
 - En rouge les valeurs (non modifiées) considérées comme fausses par le second traitement mais pourtant vraies selon le premier SI
 
 ![alt text](https://zupimages.net/up/21/04/5003.png)
+
+#### 4. Comparaison avec le premier SI
+
+Comme pour le premier SI, nous avons généré les graphiques du SI erreur corrigé.
+
+- Statistiques sur la moyenne, l'écart type, le minimum et maximum des températures par mois
+
+![alt text](https://zupimages.net/up/21/05/q8v5.png)
+
+- Vue des températures par mois pour 12 mois
+
+![alt text](https://zupimages.net/up/21/05/86y5.png)
+
+- Vue globale des températures à l'année
+
+![alt text](https://zupimages.net/up/21/05/8u93.png)
+
+- Comparaison de la courbe de température entre les deux SI
+
+![alt text](https://zupimages.net/up/21/05/sxd9.png)
 
 ### Traitement des données de Savukoski kirkonkyla
 
@@ -68,11 +104,11 @@ En comparant la moyenne des température avec le site infoclimat.fr, la capitale
 
 #### Version automatique
 
-Nous nous sommes basé sur un jeu de données provenant de Kaggle (https://www.kaggle.com/sudalairajkumar/daily-temperature-of-major-cities) dont nous avons extrait les capitales des pays du nord de l'europe sur plusieurs années ([city_temperature_light.csv.xlsx](https://github.com/Shyndard/tp-qualite-des-donnees/raw/master/data/city_temperature_light.csv.xlsx)). Au total, 151 années de températures sont contenues dans ce fichier.
+Nous nous sommes basé sur un jeu de données provenant de Kaggle ([daily-temperature-of-major-cities](https://www.kaggle.com/sudalairajkumar/daily-temperature-of-major-cities)) dont nous avons extrait les capitales des pays du nord de l'europe sur plusieurs années ([city_temperature_light.csv.xlsx](https://github.com/Shyndard/tp-qualite-des-donnees/raw/master/data/city_temperature_light.csv.xlsx)). Au total, 151 années de températures sont contenues dans cette extraction.
 
 Les moyennes et les écarts types de chaque année sont comparées aux  moyennes et les écarts types de notre SI corrigé. Le but est d'avoir une valeur qui se rapproche le plus possible de 1.
 
-Le traitement sort une valeur de 1.0177011027066796 pour la ville de Stockholm pour l'année 2006. Vous trouverez à la fin du fichier [Traitement.ipynb](https://github.com/Shyndard/tp-qualite-des-donnees/blob/master/Traitement.ipynb) une courbe comparant les températures entre le SI erreur corrigé et Stockholm 2006.
+Le traitement sort une valeur de 1.0177011027066796 pour la ville de Stockholm pour l'année 2006. Le détail du calcul est disponible à la fin du fichier [Traitement.ipynb](https://github.com/Shyndard/tp-qualite-des-donnees/blob/master/Traitement.ipynb). Ci-dessous la comparaison entre les valeurs de notre SI corrigé avec l'année 2006 à Stockholm.
 
 ![alt text](https://zupimages.net/up/21/05/2wyu.png)
 
