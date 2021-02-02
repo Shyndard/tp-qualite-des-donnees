@@ -219,7 +219,7 @@ for month in range(len(temperatures[current_si])):
 plt.show()
 
 
-# In[10]:
+# In[12]:
 
 
 # Affichage de la température à l'année avec un curseur pour lire les valeurs
@@ -234,7 +234,7 @@ ax.plot(fig_range, flatten(temperatures[current_si]),)
 plt.show()
 
 
-# In[12]:
+# In[13]:
 
 
 # Affichage de la température à l'année avec une valeur centrée
@@ -252,7 +252,7 @@ plt.show()
 
 # ### Traitement sur le fichier Climat.xlsx avec la feuille SI - Erreur ###
 
-# In[13]:
+# In[14]:
 
 
 ## Chargement de la page "SI - Erreur" du fichier "Climat.xlsx"
@@ -261,7 +261,7 @@ current_si += 1
 si_erreur = pd.read_excel("/home/jovyan/work/data/Climat.xlsx", sheet_name=1)
 
 
-# In[14]:
+# In[15]:
 
 
 ## Récupération des températures depuis l'excel pour le "SI erreur"
@@ -289,7 +289,7 @@ for column in range(3, 15):
 temperatures.append(temperature_si)
 
 
-# In[15]:
+# In[16]:
 
 
 # Calcul des moyennes des températures
@@ -299,7 +299,7 @@ temperatures_averages.append(getAveragePerArray(temperatures[current_si]))
 temperatures_standard_deviation.append(getStandardDeviationPerArray(temperatures[current_si]))
 
 
-# In[16]:
+# In[17]:
 
 
 # Maintenant que nous avons calculé un premier jet de nos moyennes et de nos écarts-types, 
@@ -358,7 +358,7 @@ for month in range(len(temperatures[current_si])):
                     replaceTemperatureByAverage(temperatures, current_si, month, day_of_month)
 
 
-# In[17]:
+# In[18]:
 
 
 # Calcul des moyennes des températures
@@ -374,7 +374,7 @@ temperatures_max_per_month.append(max_per_array)
 print("Min temp {!s} and max temp {!s}".format(min(min_per_array), max(max_per_array)))
 
 
-# In[18]:
+# In[19]:
 
 
 # Affichages des moyennes, des écarts-types et des min-max par mois
@@ -393,7 +393,7 @@ plt.legend()
 plt.show()
 
 
-# In[19]:
+# In[20]:
 
 
 # Affichage de la température par mois via 1 figure
@@ -407,7 +407,7 @@ for month in range(len(temperatures[current_si])):
     plt.show()
 
 
-# In[20]:
+# In[21]:
 
 
 # Affichage de la température par mois via 12 figures
@@ -424,7 +424,7 @@ for month in range(len(temperatures[current_si])):
 plt.show()
 
 
-# In[21]:
+# In[22]:
 
 
 # Affichage de la température à l'année avec un curseur pour lire les valeurs
@@ -440,7 +440,7 @@ ax.plot(fig_range, flatten(temperatures[current_si]),)
 plt.show()
 
 
-# In[22]:
+# In[23]:
 
 
 get_ipython().run_line_magic('matplotlib', 'notebook')
@@ -455,7 +455,7 @@ plt.show()
 
 # ### Traitement sur le fichier Savukoski kirkonkyla.xlsx ###
 
-# In[23]:
+# In[24]:
 
 
 ## Chargement de la page "SI - Erreur" du fichier "Savukoski kirkonkyla.xlsx"
@@ -464,7 +464,7 @@ current_si += 1
 si_savukoski = pd.read_excel("/home/jovyan/work/data/Savukoski kirkonkyla.xlsx", sheet_name=2)
 
 
-# In[24]:
+# In[25]:
 
 
 ## Récupération des températures depuis l'excel pour le SI de Savukoski kirkonkyla
@@ -501,7 +501,7 @@ temperature_si.append(month_temperature)
 temperatures.append(temperature_si)
 
 
-# In[25]:
+# In[26]:
 
 
 # Calcul des moyennes des températures
@@ -518,7 +518,7 @@ temperatures_max_per_month.append(max_per_array)
 print("Min temp {!s} and max temp {!s}".format(min(min_per_array), max(max_per_array)))
 
 
-# In[26]:
+# In[27]:
 
 
 # Affichages des moyennes, des écarts-types et des min-max par mois
@@ -537,7 +537,7 @@ plt.legend()
 plt.show()
 
 
-# In[27]:
+# In[28]:
 
 
 # On compare les écarts
@@ -553,7 +553,7 @@ print(calculateDeviation(temperatures_max_per_month[1], temperatures_max_per_mon
 
 # ### Traitement sur le fichier opendata city_temperature_light.csv.xlsx ###
 
-# In[28]:
+# In[29]:
 
 
 ## Chargement du fichier city_temperature_light.csv.xlsx
@@ -561,18 +561,18 @@ print(calculateDeviation(temperatures_max_per_month[1], temperatures_max_per_mon
 si_opendata = pd.read_excel("/home/jovyan/work/data/city_temperature_light.csv.xlsx", sheet_name=0)
 
 
-# In[29]:
+# In[30]:
 
 
 temperatures_opendata=[]
+opendata_year_country=[]
 temperatures_opendata_averages=[]
 temperatures_opendata_standard_deviation=[]
 temperatures_opendata_min_per_month=[]
 temperatures_opendata_max_per_month=[]
-temperatures_country_by_year = []
 
 
-# In[30]:
+# In[31]:
 
 
 current_month_temperatures = []
@@ -592,18 +592,18 @@ for row in range(0,len(si_opendata.index)):
     if si_opendata.iloc[row, 6] != current_year:
         if(len(flatten(current_year_temperatures)) >= 365):
             temperatures_opendata.append(current_year_temperatures)
-        temperatures_country_by_year.append(si_opendata.iloc[row, 3] + " | " + str(si_opendata.iloc[row, 6]))
+            opendata_year_country.append([current_year, si_opendata.iloc[row, 3]])
         current_year = si_opendata.iloc[row, 6]
         current_year_temperatures = []
     current_month_temperatures.append(fahrenheitToCelsius(si_opendata.iloc[row, 7]))
 
 current_year_temperatures.append(current_month_temperatures)
-temperatures_opendata.append(current_year_temperatures)
 if(len(flatten(current_year_temperatures)) >= 365):
-    temperatures_country_by_year.append(si_opendata.iloc[row, ] + " | " + str(si_opendata.iloc[row, 6]))
+    temperatures_opendata.append(current_year_temperatures)
+    opendata_year_country.append([current_year, si_opendata.iloc[row, 3]])
 
 
-# In[31]:
+# In[32]:
 
 
 # On calcul les moyennes et les écarts types
@@ -613,24 +613,24 @@ for index in range(0, len(temperatures_opendata)):
     temperatures_opendata_standard_deviation.append(getStandardDeviationPerArray(temperatures_opendata[index]))
 
 
-# In[32]:
+# In[33]:
 
 
-# On détermine quel est l'année et la ville qui se rapproche le plus de 1
+# On détermine quel est l'année et la ville qui se rapproche le plus de 1 en comparant les moyennes
 
 best_average_score = 0
 best_average_score_index = 0
 
 for index in range(0, len(temperatures_opendata_averages)):
-    average_score = np.prod(calculateDeviation(temperatures_opendata_averages[index], temperatures_averages[1])) * np.prod(calculateDeviation(temperatures_opendata_standard_deviation[index], temperatures_standard_deviation[1]))
+    average_score = np.prod(calculateDeviation(temperatures_opendata_averages[index], temperatures_averages[1]))
     if(np.abs(1 - best_average_score) > np.abs(average_score - 1)):
         best_average_score = average_score
         best_average_score_index = index
 
-print(best_average_score, best_average_score_index, temperatures_country_by_year[best_average_score_index])
+print(best_average_score, best_average_score_index, opendata_year_country[best_average_score_index])
 
 
-# In[33]:
+# In[34]:
 
 
 # On affiche les températures du SI et de la ville trouvée
@@ -638,11 +638,28 @@ get_ipython().run_line_magic('matplotlib', 'notebook')
 
 plot = plt.figure(0)
 plt.plot(flatten(temperatures[1]), label = "SI")
-plt.plot(flatten(temperatures_opendata[best_average_score_index]), label = temperatures_country_by_year[best_average_score_index])
+plt.plot(flatten(temperatures_opendata[best_average_score_index]), label = opendata_year_country[best_average_score_index])
 plt.xlabel("Jour de l'année")
 plt.title("Comparaisons des températures")
 plt.legend()
 plt.show()
+
+
+# In[35]:
+
+
+# On affiche les températures du SI et de la ville trouvée
+get_ipython().run_line_magic('matplotlib', 'notebook')
+
+for index in range(0, len(temperatures_opendata_averages)):
+    if opendata_year_country[index][0] == 2018:
+        plot = plt.figure(index)
+        plt.plot(flatten(temperatures[1]), label = "SI")
+        plt.plot(flatten(temperatures_opendata[index]), label = opendata_year_country[index])
+        plt.xlabel("Jour de l'année")
+        plt.title("Comparaisons des températures")
+        plt.legend()
+        plt.show()
 
 
 # In[ ]:
