@@ -110,10 +110,20 @@ En comparant la moyenne des température avec le site infoclimat.fr, la capitale
 
 Nous nous sommes basé sur un jeu de données provenant de Kaggle ([daily-temperature-of-major-cities](https://www.kaggle.com/sudalairajkumar/daily-temperature-of-major-cities)) dont nous avons extrait les capitales des pays du nord de l'europe sur plusieurs années ([city_temperature_light.csv.xlsx](https://github.com/Shyndard/tp-qualite-des-donnees/raw/master/data/city_temperature_light.csv.xlsx)). Au total, 151 années de températures sont contenues dans cette extraction.
 
-Les moyennes et les écarts types de chaque année sont comparées aux  moyennes et les écarts types de notre SI corrigé. Le but est d'avoir une valeur qui se rapproche le plus possible de 1.
+Les moyennes de chaque année sont comparées aux  moyennes de notre SI corrigé. Le but est d'avoir une valeur qui se rapproche le plus possible de 1.
 
-Le traitement sort une valeur de 1.0177011027066796 pour la ville de Stockholm pour l'année 2006. Le détail du calcul est disponible à la fin du fichier [Traitement.ipynb](https://github.com/Shyndard/tp-qualite-des-donnees/blob/master/Traitement.ipynb). Ci-dessous la comparaison entre les valeurs de notre SI corrigé avec l'année 2006 à Stockholm.
+Le traitement sort une valeur de 0.9445769595118712 pour la ville de Stockholm pour l'année 2018. Le détail du calcul est disponible à la fin du fichier [Traitement.ipynb](https://github.com/Shyndard/tp-qualite-des-donnees/blob/master/Traitement.ipynb). Ci-dessous la comparaison entre les valeurs de notre SI corrigé avec l'année 2018 à Stockholm.
 
-![alt text](https://zupimages.net/up/21/05/2wyu.png)
+![alt text](https://zupimages.net/up/21/05/5au2.png)
 
 On constate des écarts importants de température pour le mois de janvier et décembre. Cela est dû à la comparaison de la moyenne et de l'écart type par mois et non pas des températures.
+
+Nous avons exporté les graphiques de comparaison pour les villes de 2018.
+
+![alt text](https://zupimages.net/up/21/05/djxa.png)
+![alt text](https://zupimages.net/up/21/05/olvx.png)
+![alt text](https://zupimages.net/up/21/05/az8l.png)
+![alt text](https://zupimages.net/up/21/05/h3gk.png)
+![alt text](https://zupimages.net/up/21/05/hhyh.png)
+
+On constate que les villes de Oslo et Helsinki sont proches également.
